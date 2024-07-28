@@ -1,0 +1,14 @@
+# Directories
+.vs/
+build/
+
+# Files
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+*.sln
+*.log
+Makefile
+
+# Exclude
+!dependencies/binaries
