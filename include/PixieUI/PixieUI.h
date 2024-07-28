@@ -1,6 +1,7 @@
 #ifndef PIXIE_UI
 #define PIXIE_UI
 
+#include "PackedTextures.h"
 #include "FrameBuffer.h"
 #include "ShaderLibrary.h"
 #include "Color.h"

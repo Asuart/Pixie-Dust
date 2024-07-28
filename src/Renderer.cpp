@@ -59,37 +59,15 @@ bool Renderer::Init() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	BMP* bmp = LoadBMPFile("data/font.bmp");
-	switch (bmp->channels) {
-	case 1:
-		glTexImage2D(
-			GL_TEXTURE_2D, 0, GL_RGBA32F,
-			bmp->width, bmp->height,
-			0, GL_R, GL_UNSIGNED_BYTE,
-			bmp->data.data()
-		);
-		break;
-	case 3:
-		glTexImage2D(
-			GL_TEXTURE_2D, 0, GL_RGBA32F,
-			bmp->width, bmp->height,
-			0, GL_RGB, GL_UNSIGNED_BYTE,
-			bmp->data.data()
-		);
-		break;
-	case 4:
-		glTexImage2D(
-			GL_TEXTURE_2D, 0, GL_RGBA32F,
-			bmp->width, bmp->height,
-			0, GL_RGBA, GL_UNSIGNED_BYTE,
-			bmp->data.data()
-		);
-		break;
-	default:
-		std::cout << "Error loading bmp texture. Wrong number of channels.\n";
-	}
+	uint8_t* fontTexture = UnpackTexture(packedFontTexture);
+	glTexImage2D(
+		GL_TEXTURE_2D, 0, GL_RGBA32F,
+		packedFontTexture.width, packedFontTexture.height,
+		0, GL_RGB, GL_UNSIGNED_BYTE,
+		fontTexture
+	);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	delete bmp;
+	delete[] fontTexture;
 
 	m_initialized = true;
 	return true;

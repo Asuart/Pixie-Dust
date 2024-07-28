@@ -9,6 +9,7 @@
 #include "Shaders.h"
 #include "Color.h"
 #include "Style.h"
+#include "PackedTextures.h"
 
 namespace PixieUI {
 
