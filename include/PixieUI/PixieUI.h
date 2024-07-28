@@ -20,7 +20,7 @@
 
 namespace PixieUI {
 	bool Init();
-	void SetCanvaseSize(uint32_t width, uint32_t height);
+	void SetCanvasSize(uint32_t width, uint32_t height);
 }
 
 #endif // PIXIE_UI

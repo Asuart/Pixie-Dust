@@ -2,7 +2,7 @@
 
 using namespace PixieUI;
 
-const Style defaultWindowOverlayStyle{
+const Style PixieUI::defaultWindowOverlayStyle{
 	Color(0, 0, 0, 180),
 	Color(0, 0, 0, 180),
 	Color(255, 255, 255),
@@ -12,7 +12,7 @@ const Style defaultWindowOverlayStyle{
 	0,
 };
 
-const Style defaultWindowBaseStyle{
+const Style PixieUI::defaultWindowBaseStyle{
 	Color(0, 0, 0),
 	Color(0, 0, 0),
 	Color(255, 255, 255),
@@ -22,7 +22,7 @@ const Style defaultWindowBaseStyle{
 	1,
 };
 
-const Style defaultWindowButtonStyle{
+const Style PixieUI::defaultWindowButtonStyle{
 	Color(0, 0, 0),
 	Color(0, 0, 0),
 	Color(255, 255, 255),

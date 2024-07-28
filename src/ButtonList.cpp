@@ -2,7 +2,7 @@
 
 using namespace PixieUI;
 
-const Style defaultButtonListStyle{
+const Style PixieUI::defaultButtonListStyle{
 	Color(0, 0, 0),
 	Color(0, 0, 0),
 	Color(255, 255, 255),

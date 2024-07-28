@@ -2,7 +2,7 @@
 
 using namespace PixieUI;
 
-const Style defaultElementStyle{
+const Style PixieUI::defaultElementStyle{
 	Color(0, 0, 0),
 	Color(0, 0, 0),
 	Color(255, 255, 255),

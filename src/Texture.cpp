@@ -2,7 +2,7 @@
 
 using namespace PixieUI;
 
-const Style defaultTextureStyle{
+const Style PixieUI::defaultTextureStyle{
 	Color(0, 0, 0),
 	Color(0, 0, 0),
 	Color(255, 255, 255),
