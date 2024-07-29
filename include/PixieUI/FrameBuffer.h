@@ -15,7 +15,7 @@ namespace PixieUI {
 		void Unbind();
 
 		GLuint m_frameBuffer;
-		GLuint m_texture, m_depth;
+		GLuint m_colorAttachment, m_depthStencilAttachment;
 		uint32_t m_width;
 		uint32_t m_height;
 	};
