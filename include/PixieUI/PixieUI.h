@@ -11,6 +11,7 @@
 #include "Renderer.h"
 #include "Element.h"
 #include "Text.h"
+#include "DynamicText.h"
 #include "Texture.h"
 #include "Layout.h"
 #include "Button.h"
