@@ -83,7 +83,9 @@ void Element::Show() {
 			m_children[i]->ShowRecoursive();
 		}
 	}
+	bool wasHidden = m_hide;
 	m_hide &= ~(uint8_t)HideFlags::self;
+	if (m_showCallback && wasHidden && !m_hide) m_showCallback();
 }
 
 void Element::Hide() {
@@ -92,7 +94,9 @@ void Element::Hide() {
 			m_children[i]->HideRecoursive();
 		}
 	}
+	bool wasHidden = m_hide;
 	m_hide |= (uint8_t)HideFlags::self;
+	if (m_hideCallback && !wasHidden && m_hide) m_hideCallback();
 }
 
 bool Element::IsHidden() {
@@ -102,6 +106,7 @@ bool Element::IsHidden() {
 void Element::ShowRecoursive() {
 	m_hide &= ~(uint8_t)HideFlags::parent;
 	if (m_hide & (uint8_t)HideFlags::self) return;
+	if (m_showCallback) m_showCallback();
 	for (uint32_t i = 0; i < m_children.size(); i++) {
 		m_children[i]->ShowRecoursive();
 	}
@@ -110,6 +115,7 @@ void Element::ShowRecoursive() {
 void Element::HideRecoursive() {
 	m_hide |= (uint8_t)HideFlags::parent;
 	if (m_hide & (uint8_t)HideFlags::self) return;
+	if (m_hideCallback) m_hideCallback();
 	for (uint32_t i = 0; i < m_children.size(); i++) {
 		m_children[i]->HideRecoursive();
 	}
@@ -141,4 +147,12 @@ void Element::SetScrollCallback(std::function<bool(int32_t, int32_t, int32_t)> s
 bool Element::Scroll(int32_t x, int32_t y, int32_t value) {
 	if (!m_scrollCallback) return false;
 	return m_scrollCallback(x, y, value);
+}
+
+void Element::SetShowCallback(std::function<void()> showCallback) {
+	m_showCallback = showCallback;
+}
+
+void Element::SetHideCallback(std::function<void()> hideCallback) {
+	m_hideCallback = hideCallback;
 }

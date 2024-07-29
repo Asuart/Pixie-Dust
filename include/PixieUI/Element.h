@@ -32,13 +32,15 @@ namespace PixieUI {
 		Element* GetParent();
 		void SetParent(Element* parent);
 		void AddChild(Element* el);
-		void Show();
-		void Hide();
+		virtual void Show();
+		virtual void Hide();
 		bool IsHidden();
 		void SetClickCallback(std::function<bool(int32_t, int32_t)> clickCallback);
 		bool Click(int32_t x, int32_t y);
 		void SetScrollCallback(std::function<bool(int32_t, int32_t, int32_t)> scrollCallback);
 		bool Scroll(int32_t x, int32_t y, int32_t value);
+		void SetShowCallback(std::function<void()> showCallback);
+		void SetHideCallback(std::function<void()> hideCallback);
 
 		virtual void Draw();
 
@@ -55,11 +57,14 @@ namespace PixieUI {
 		uint8_t m_hide = false;
 		std::function<bool(int32_t, int32_t)> m_clickCallback = nullptr;
 		std::function<bool(int32_t, int32_t, int32_t)> m_scrollCallback = nullptr;
+		std::function<void()> m_showCallback;
+		std::function<void()> m_hideCallback;
 
-		void ShowRecoursive();
-		void HideRecoursive();
+		virtual void ShowRecoursive();
+		virtual void HideRecoursive();
 
 		friend class Layout;
+		friend class Window;
 	};
 
 }
