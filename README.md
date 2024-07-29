@@ -1,6 +1,8 @@
 # PixieUI
 OpenGL based library for simple UI. I do not recomend to use it, because it's made as placeholder UI for my other projects and requires a lot more work to be decent. It doesn't provide a lot of utility at the moment, isn't optimized and can be buggy. 
-The purpose of this code is to create small scale primitive UI (approximately 600 by 400 pixels) and upscale it to your screen. All sizes are set in pixel values and everything is absolutely positioned.
+
+The goal is to create small scale primitive UI (approximately 600 by 400 pixels) and upscale it to your screen. All sizes are set in pixel values and everything is absolutely positioned.
+
 It allows you to set up UI that can:
 - Render text in 5x7 pixel font.
 - Draw rectangles with border.
@@ -8,14 +10,18 @@ It allows you to set up UI that can:
 - Set colors of text, background, border for default and hover state.
 - Trigger click and scroll event on UI and set Click and Scroll callbacks for elements. 
 
-## Requirements
-C++ 20 standard is recommended.
-PixieUI requires `GLEW` library to be installed on your system.
+## Dependencies
+- C++ 20 standard is recommended.
+- `Premake5` is used to generate project solutions.
+- `GLAD` is required to access OpenGL function. It is included in project source.
+- `GLFW3` is required for example projects. Headers and `.lib` files for windows are included in repository.
 
 ## Build
-Premake5 is used for project generation.
-Build is configured and tested for Visual Studio 2022 on Windows 10.
-To generate project solution file execute `scripts/Setup-Windows.bat`.
+Project is configured and tested for generaion `Visual Studio 2022` solutions on Window 10. Other systems may require to install dependencies separately.
+
+To generate project solution execute `scripts/Setup-Windows.bat`.
+
+To generate solution for example projects execute `Setup-Examples-Windows.bat`.
 
 ## Usage
 To start using library in your project follow these steps:
@@ -28,6 +34,7 @@ To start using library in your project follow these steps:
 
 ### Usage with `PixieUI::Layout`
 Allows you to create tree of elements and configure interactivity as you need.
+
 This exemplary code will render "Hello, World!" text at position `x: 20`, `y: 20` in layout space.
 1) Create a layout variable. `PixieUI::Layout* ui = new PixieUI::Layout(600, 400);`
 2) Create new element. `PixieUI::Element* text = new PixieUI::Text("Hello, World!", 20, 20);`
@@ -43,6 +50,7 @@ To make element interactive follow these steps:
 
 ### Usage with `PixieUI::Renderer`
 `PixieUI::Renderer` allows you to draw to the screen without creating layout and elements, but can't be interactive.
+
 `PixieUI::renderer::DrawText("Hello, world", 20, 20, Color(255, 255, 255));` called in render loop, will be identical to "Hello, World!" example using layout. 
 
 ## License
