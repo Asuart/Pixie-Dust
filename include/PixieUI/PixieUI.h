@@ -20,8 +20,15 @@
 #include "Window.h"
 
 namespace PixieUI {
-	bool Init();
-	void SetCanvasSize(uint32_t width, uint32_t height);
+
+	static inline bool Init() {
+		return Renderer::Init();
+	}
+
+	static inline void SetCanvasSize(uint32_t width, uint32_t height) {
+		Renderer::SetCanvasSize(width, height);
+	}
+
 }
 
 #endif // PIXIE_UI

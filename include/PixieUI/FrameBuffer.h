@@ -1,8 +1,8 @@
 #ifndef PIXIE_UI_FRAME_BUFFER
 #define PIXIE_UI_FRAME_BUFFER
 
-#include <GL/glew.h>
 #include <cstdint>
+#include <glad/glad.h>
 
 namespace PixieUI {
 

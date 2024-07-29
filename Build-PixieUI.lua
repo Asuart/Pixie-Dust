@@ -5,11 +5,12 @@ project "PixieUI"
    targetdir "build/%{cfg.buildcfg}"
    staticruntime "off"
 
-   files { "include/PixieUI/**.h", "src/**.cpp" }
+   files { "include/PixieUI/**.h", "src/**.cpp", "dependencies/GLAD/src/**.c" }
 
    includedirs
    {
-      "include/PixieUI"
+      "include/PixieUI",
+      "dependencies/GLAD/include/",
    }
 
    targetdir ("build/" .. OutputDir .. "/%{prj.name}")

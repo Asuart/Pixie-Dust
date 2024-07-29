@@ -3,7 +3,7 @@
 
 #include <cstdint>
 #include <array>
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include "ShaderLibrary.h"
 #include "BMPDecoder.h"
 #include "Shaders.h"
